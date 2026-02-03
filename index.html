@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astrology Insight Request</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Astrology Insight Request</h1>
+      <p class="subtitle">
+        Receive a thoughtful, AI‑assisted astrological reflection based on your birth details and area of focus.
+      </p>
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <h2>Share your birth details</h2>
+        <p class="section-intro">
+          Please fill in the form carefully. Fields marked with <span class="required">*</span> are required.
+        </p>
+
+        <form id="astrology-form" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Full name <span class="required">*</span></label>
+              <input type="text" id="fullName" name="fullName" required />
+              <p class="error" data-error-for="fullName"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required />
+              <p class="error" data-error-for="email"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="dateOfBirth">Date of birth <span class="required">*</span></label>
+              <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+              <p class="error" data-error-for="dateOfBirth"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="timeOfBirth">Time of birth (optional)</label>
+              <input type="time" id="timeOfBirth" name="timeOfBirth" />
+              <p class="error" data-error-for="timeOfBirth"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="placeOfBirth">Place of birth <span class="required">*</span></label>
+              <input
+                type="text"
+                id="placeOfBirth"
+                name="placeOfBirth"
+                placeholder="City, Country"
+                required
+              />
+              <p class="error" data-error-for="placeOfBirth"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="gender">Gender (optional)</label>
+              <select id="gender" name="gender">
+                <option value="">Prefer not to say</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="nonbinary">Non-binary</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="error" data-error-for="gender"></p>
+            </div>
+
+            <div class="form-group">
+              <label for="focusArea">Area of focus <span class="required">*</span></label>
+              <select id="focusArea" name="focusArea" required>
+                <option value="">Select one</option>
+                <option value="career">Career</option>
+                <option value="health">Health</option>
+                <option value="relationships">Relationships</option>
+                <option value="personal_growth">Personal growth</option>
+                <option value="finances">Finances</option>
+                <option value="general">General life outlook</option>
+              </select>
+              <p class="error" data-error-for="focusArea"></p>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label for="extraContext">Anything else you'd like to share? (optional)</label>
+              <textarea
+                id="extraContext"
+                name="extraContext"
+                rows="3"
+                placeholder="Optional context, specific questions, or current life situation."
+              ></textarea>
+              <p class="error" data-error-for="extraContext"></p>
+            </div>
+          </div>
+
+          <div class="consent">
+            <label class="checkbox">
+              <input type="checkbox" id="consent" name="consent" required />
+              <span>
+                I understand that these predictions are for reflection and guidance only, and not a substitute
+                for professional advice.
+              </span>
+            </label>
+            <p class="error" data-error-for="consent"></p>
+          </div>
+
+          <button type="submit" class="btn" id="submitBtn">
+            Request my astrology insight
+          </button>
+
+          <p class="helper-text">
+            After submitting, you will receive an email with your personalized astrology insight once it has
+            been generated.
+          </p>
+
+          <div id="form-status" class="status" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="card card--secondary">
+        <h2>How this works</h2>
+        <ol class="steps">
+          <li><strong>1.</strong> You submit your birth details and focus area.</li>
+          <li><strong>2.</strong> Our backend workflow (powered by n8n and an AI model) interprets your data.</li>
+          <li><strong>3.</strong> The AI generates a structured, readable astrology‑style reflection.</li>
+          <li><strong>4.</strong> You receive an email with your personalized insight and a short disclaimer.</li>
+        </ol>
+        <p class="disclaimer">
+          This project is a demonstration of responsible AI usage for educational purposes. It avoids extreme,
+          fatalistic, or absolute claims and always frames insights as possibilities, tendencies, and prompts
+          for self‑reflection.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Astrology Prediction Demo &middot; Built with HTML, CSS, JavaScript, n8n, and AI.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Configure this to your deployed n8n webhook URL before going live.
+    window.N8N_WEBHOOK_URL = "https://YOUR-N8N-DOMAIN/webhook/astrology-insight";
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
+
