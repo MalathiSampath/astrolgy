@@ -97,7 +97,7 @@ async function submitForm(event) {
   }
 
   const webhookUrl = window.N8N_WEBHOOK_URL;
-  if (!webhookUrl || webhookUrl.includes("YOUR-N8N-DOMAIN")) {
+  if (!webhookUrl || webhookUrl.includes("https://malathisampath.app.n8n.cloud/webhook/6fed348e-e948-48b0-8f2f-471e06d72a26")) {
     setStatus(
       "Webhook URL is not configured. Please set window.N8N_WEBHOOK_URL in index.html.",
       "error"
@@ -157,4 +157,5 @@ document.addEventListener("DOMContentLoaded", () => {
     form.addEventListener("submit", submitForm);
   }
 });
+
 
